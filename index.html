@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Fire Diamond Generator</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #080808;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* Loading Animation Box */
+      #loadingBox {
+        text-align: center;
+        animation: fadeIn 1s ease forwards;
+      }
+
+      .spinner {
+        border: 6px solid #444;
+        border-top: 6px solid #00eaff;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        margin: auto;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Meme box */
+      #memeBox {
+        display: none;
+        text-align: center;
+        padding: 30px;
+        animation: fadeIn 1s ease forwards;
+      }
+
+      #meme {
+        font-size: 27px;
+        margin-top: 20px;
+      }
+
+      .btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #00eaff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Animation -->
+    <div id="loadingBox">
+      <div class="spinner"></div>
+      <h2>Generating Free Fire Diamonds...</h2>
+      <p>Please wait...</p>
+    </div>
+
+    <!-- Meme Section -->
+    <div id="memeBox">
+      <h1>😂 Prank Successful!</h1>
+      <div id="meme"></div>
+      <button class="btn" onclick="location.reload()">Try Again</button>
+    </div>
+
+    <script>
+      const memes = [
+        "Padhai likhai kar, Diamond khud mil jayenge 😂",
+        "Free Fire chhod, zindagi jee bhai 😭",
+        "Diamond chahiye? Sapne mein milega 🤣",
+        "Tu so gaya kya? Diamond kabhi nahi milne wale 😆",
+        "Bhai, Free mein sirf advice milti hai 😜",
+      ];
+
+      // Show memes after loading animation
+      setTimeout(() => {
+        document.getElementById("loadingBox").style.display = "none";
+        document.getElementById("memeBox").style.display = "block";
+
+        // Select random meme
+        document.getElementById("meme").innerText =
+          memes[Math.floor(Math.random() * memes.length)];
+      }, 3500);
+    </script>
+  </body>
+</html>
